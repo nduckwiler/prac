@@ -1,0 +1,81 @@
+/* 
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations
+ * https://css-tricks.com/snippets/css/keyframe-animation-syntax/
+ */
+
+@keyframes raiseOpacity {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes lowerOpacity {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes growFont {
+  0% {
+    font-size: 50%;
+  }
+
+  50% {
+    font-size: 150%;
+  }
+
+  100% {
+    font-size: 100%;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* 0% or from; 100% or to */
+@keyframes slideIn {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  75% {
+    font-size: 150%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.bouncy {
+  animation-duration: 3s;
+  animation-name: slideIn;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#box {
+  animation:         raiseOpacity 5s infinite; /* IE 10+, Fx 29+ */
+}
+
+.hidden {
+  opacity: 0;
+  animation: lowerOpacity 2s;
+}
+
+.shown {
+  animation-name: raiseOpacity, growFont;
+  animation-duration: 3s;
+}
+
+#dog {
+  animation-name: raiseOpacity, scaleUp;
+  animation-duration: 4s;
+}
