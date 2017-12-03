@@ -60,4 +60,55 @@ describe('Author', () => {
       });
     });
   });
+
+  describe('.find', () => {
+    describe('using await', () => {
+      describe('when a matching doc exists', () => {
+        it('returns an array of docs', async () => {
+          const fields = {
+            first_name: 'bob',
+            family_name: 'bobby',
+            phone: '555-555-5555'
+          };
+          const author = new Author(fields);
+
+          await Author.create(author);
+
+          const results = await Author.find({ 'first_name': 'bob' });
+          assert.typeOf(results, 'array');
+          assert.strictEqual(results.length, 1);
+          assert.include(results[0], fields);
+        });
+
+        it('can accepts search critieria as JSON', async () => {
+          const fields = {
+            first_name: 'bob',
+            family_name: 'bobby',
+            phone: '555-555-5555'
+          };
+          const author = new Author(fields);
+
+          await Author.create(author);
+
+          const results = await Author.find({
+            first_name: 'bob',
+            family_name: { $in: ['bobby', 'billy', 'becky']},
+            phone:/[0-9]*-[0-9]*-[0-9]*/
+          });
+          assert.typeOf(results, 'array');
+          assert.strictEqual(results.length, 1);
+          assert.include(results[0], fields);
+        });
+      });
+
+      describe('when no matching doc exists', () => {
+        it('returns an empty array', async () => {
+          const results = await Author.find({ 'first_name': 'bob' });
+          assert.typeOf(results, 'array');
+          assert.strictEqual(results.length, 0);
+        });
+
+      });
+    });
+  });
 });
