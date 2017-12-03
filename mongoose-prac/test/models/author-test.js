@@ -32,9 +32,9 @@ describe('Author', () => {
     describe('when passed a doc', () => {
       it('persists an author', async () => {
         const fields = {
-					first_name: 'bob',
-					family_name: 'bobby',
-					phone: '555-555-5555'
+          first_name: 'bob',
+          family_name: 'bobby',
+          phone: '555-555-5555'
         };
         const author = new Author(fields);
 
@@ -48,9 +48,9 @@ describe('Author', () => {
     describe('when passed properties', () => {
       it('persists a author', async () => {
         const fields = {
-					first_name: 'bob',
-					family_name: 'bobby',
-					phone: '555-555-5555'
+          first_name: 'bob',
+          family_name: 'bobby',
+          phone: '555-555-5555'
         };
 
         await Author.create(fields);
