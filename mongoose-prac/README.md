@@ -5,7 +5,7 @@ This README applies specifically to `mongoose-prac` node project.
 Clone the repo.
 
 ```
-https://github.com/nduckwiler/prac.git
+git clone https://github.com/nduckwiler/prac.git
 ```
 
 Install dependencies.
