@@ -10,34 +10,30 @@ describe('', function () {
 
     // assert that function notation is not used
     assert.notMatch(code, /function/, 'Use arrow notation `() =>` to define functions.');
-    /*
-    let codeMatch = code.match(/function/);
-    assert.isNotOk(codeMatch, '');
-    */
 
-    let structureSelector1 = function(){
+    let structure1 = function(){
       const Calculate = {
         sum($arr) {}
       };
     };
 
-    let structureSelector2 = function(){
+    let structure2 = function(){
       const Calculate = {
         sum: ($arr) => {}
       };
     };
 
-    let structureSelector3 = function(){
+    let structure3 = function(){
       Calculate.sum = ($arr) => {};
     };
 
 
-    let isMatchSelector1 = Structured.match(code, structureSelector1);
-    let isMatchSelector2 = Structured.match(code, structureSelector2);
-    let isMatchSelector3 = Structured.match(code, structureSelector3);
+    let isMatch1 = Structured.match(code, structure1);
+    let isMatch2 = Structured.match(code, structure2);
+    let isMatch3 = Structured.match(code, structure3);
     let failureMessage = 'Did you declare a method named `sum` that takes one argument in the `Calculate` object?' ;
 
 
-  assert.isOk(isMatchSelector1 || isMatchSelector2 || isMatchSelector3, failureMessage);
+  assert.isOk(isMatch1 || isMatch2 || isMatch3, failureMessage);
 })
 })
