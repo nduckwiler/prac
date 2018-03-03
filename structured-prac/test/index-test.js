@@ -24,16 +24,24 @@ describe('', function () {
     };
 
     let structure3 = function(){
-      Calculate.sum = ($arr) => {};
+      Calculate.sum = ($arr) => { const x = $ten; };
     };
 
+    const varCallbacks = [
+      function($arr, $ten) {
+        if ($arr.name !== 'arr') {
+          return {failure: 'Expected parameter of `.sum` to be `arr`'};
+        } else {
+          return true;
+        }
+      }
+    ];
 
-    let isMatch1 = Structured.match(code, structure1);
-    let isMatch2 = Structured.match(code, structure2);
-    let isMatch3 = Structured.match(code, structure3);
-    let failureMessage = 'Did you declare a method named `sum` that takes one argument in the `Calculate` object?' ;
+    let isMatch1 = Structured.match(code, structure1, {varCallbacks: varCallbacks});
+    let isMatch2 = Structured.match(code, structure2, {varCallbacks: varCallbacks});
+    let isMatch3 = Structured.match(code, structure3, {varCallbacks: varCallbacks});
+    let failureMessage = varCallbacks.failure || 'Did you declare a method named `sum` that takes one argument in the `Calculate` object?' ;
 
-
-  assert.isOk(isMatch1 || isMatch2 || isMatch3, failureMessage);
-})
+    assert.isOk(isMatch1 || isMatch2 || isMatch3, failureMessage);
+  })
 })
