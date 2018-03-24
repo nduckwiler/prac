@@ -3,6 +3,7 @@
 # Run this file by typing `bash start.sh`
 
 echo Hello World!
+echo "This script explains some bash concepts necessary to understand BATS tests."
 
 echo
 echo "~~VARIABLES~~"
@@ -21,12 +22,13 @@ echo "Script's PID: $$"
 echo "Number of arguments passed to script: $#"
 echo "All arguments passed to script: $@"
 echo "Script's arguments separated into different variables: $1 $2..."
+# For example, if you call `bash start.sh "wassup"`, $1 is "wassup"
 
-# Expansion 
 echo
 echo "~~PATHNAME EXPANSION~~"
 echo
 # Use glob patterns, like `*` and `?` to expand pathnames
+# Read more here: http://tldp.org/LDP/abs/html/globbingref.html
 echo "Files ending with .sh:"
 ls *.sh
 echo "Files with 'package', a single char, then 'json'"
@@ -47,8 +49,9 @@ echo "Your time is $time."
 echo "Your time is $times."
 # use ${} to specify variable name: "Your time is 23.73s."
 echo "Your time is ${time}s."
-# Use parameter expansion operations within ${}: "Your new time is 25.73s"
-# One example is `/`: ${parameter/pattern/replacement}
+# You can use parameter expansion operations within ${}
+# Use ${} to change the first 3 to 5: "Your new time is 25.73s"
+# We'll use the operation `/`: ${parameter/pattern/replacement}
 echo "Your new time is ${time/3/5}s."
 
 echo
@@ -57,7 +60,7 @@ echo
 echo "Your sum is $(( 5 + 2 ))."
 
 echo
-echo "~~CONDITIONALS~~"
+echo "~~CONDITIONALS AND []~~"
 echo
 # if list
 # then list
@@ -77,7 +80,7 @@ fi
 # `[` is just a command, like `ls`
 # It takes an expression and `]` as arguments, like
 # [ 'hey' = 'hey' ]
-# The expression is evaluated. If it evaluates to true, `[` returns a 
+# The expression is evaluated. If it evaluates to true, `[` returns a
 # zero exit status. How convenient...
 [ 'hey' = 'hey' ]
 echo "Exit code: $?" # --> "Exit code: 0"
@@ -121,8 +124,8 @@ fi
 
 # Double quote to "safely" handle potentially empty variables
 # If $FOO is empty and unquoted, this is interpreted like [ = "Jim" ]
-# IF $FOO is quoted, this is interpreted like [ "" = "Jim" ]
 [ $FOO = "Jim" ] # --> Syntax error
+# IF $FOO is quoted, this is interpreted like [ "" = "Jim" ]
 [ "$FOO" = "Jim" ]
 
 # `[[` is bash improvement to `[`
