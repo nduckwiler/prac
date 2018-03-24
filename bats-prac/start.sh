@@ -92,17 +92,31 @@ fi
 # Type `man test` to see all operators available to `[`
 # Some examples:
 # -f file    True if file exists and is regular file
+# -d file    True if file exists and is a directory
 # s1 = s2    True if strings s1 and s2 are identical
 # n1 -eq n2  True if integers n1 and n2 are algebraically equal
+# n1 -gt n2  True if integers n1 is greater than n2
 if [ -f start.sh ]
 then
   echo "start.sh exists!"
 fi
 
+# You can use ! for negation
+if [ ! -f bloop.sh ]
+then
+  echo "bloop.sh does not exist!"
+fi
+
 # You can use && and ||
 if [ 3 -eq 0 ] || [ -f start.sh ] 
 then
-  echo "At least one is true!"
+  echo "At least one is true! (using ||)"
+fi
+
+# Or -a and -o 
+if [ 3 -eq 0 -o -f start.sh ] 
+then
+  echo "At least one is true! (using -o)"
 fi
 
 # Double quote to "safely" handle potentially empty variables
@@ -116,3 +130,22 @@ fi
 # need to stick with `[.`
 # Make sure you have the `#!/bin/bash` shebang line for your script if you
 # use double brackets
+
+echo
+echo "~~LOOPS~~"
+echo
+# Using separate arguments
+# This will print
+# start.sh
+# package.json
+for file in "start.sh" "package.json"
+do
+  echo "$file"
+done
+
+# Using globbing
+# This prints every directory in your current directory
+for dir in */
+do
+  echo "$dir"
+done
