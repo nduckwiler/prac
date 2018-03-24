@@ -14,6 +14,21 @@ Install dependencies.
 npm install
 ```
 
+# How to use bats-prac
+```
+bats-prac/
+|-- start.sh
+|-- test/
+    |-- test.sh
+    |-- basic-test.bats
+    |-- ...
+```
+`start.sh` provides basic bash knowledge necessary to write BATS tests. Run it with `bash start.sh`.
+
+`basic-test.bats` contains some basic BATS tests. These are good for learning and copying for your own tests.
+
+`test.sh` can be run to execute all `.bats` tests in the `test` directory. Run it with `bash test/test.sh`.
+
 # Sources
 
 - The [BATS repo](https://github.com/sstephenson/bats)
