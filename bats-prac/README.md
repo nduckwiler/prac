@@ -34,3 +34,5 @@ bats-prac/
 - The [BATS repo](https://github.com/sstephenson/bats)
 - [Testing Your Shell Scripts, with Bats](https://medium.com/@pimterry/testing-your-shell-scripts-with-bats-abfca9bdc5b9) - a good primer
 - [The Bash Guide on bash.academy](http://guide.bash.academy) - everything you need to know about bash
+- [Documentation for globbing](http://tldp.org/LDP/abs/html/globbingref.html) - explains how to use globbing in bash, like `*` and `?`
+- [When is double-quoting necessary?](https://unix.stackexchange.com/questions/68694/when-is-double-quoting-necessary) - explains why we quote variables, like `"$result"`

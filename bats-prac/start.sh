@@ -27,21 +27,27 @@ echo "Script's arguments separated into different variables: $1 $2..."
 echo
 echo "~~PATHNAME EXPANSION~~"
 echo
-# Use glob patterns, like `*` and `?` to expand pathnames
+# Use glob patterns, like `*`, `?`, and `[]` to expand pathnames
 # Read more here: http://tldp.org/LDP/abs/html/globbingref.html
-echo "Files ending with .sh:"
+echo "Files ending with .sh (using *):"
 ls *.sh
-echo "Files with 'package', a single char, then 'json'"
+echo "Files in the test folder (using *):"
+ls test/*
+echo "Files with 'package', a single char, then 'json' (using ?):"
 ls package?json
+echo "Files containing a lowercase vowel (using []):"
+ls *["aeiou"]*
 
 echo
 echo "~~COMMAND SUBSTITUTION~~"
 echo
+# All value expansion, including command substitution, only works within double quotes
 echo "I'm in $(pwd)"
 
 echo
 echo "~~PARAMETER EXPANSION~~"
 echo
+# All value expansion, including parameter expansion, only works within double quotes
 time=23.73
 # How do we add an 's' to the end of the time var?
 echo "Your time is $time."
@@ -152,3 +158,8 @@ for dir in */
 do
   echo "$dir"
 done
+
+
+echo
+echo "~~CUSTOM FUNCTIONS- TODO~~"
+echo
