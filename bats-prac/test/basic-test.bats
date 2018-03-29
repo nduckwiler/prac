@@ -1,4 +1,4 @@
-#!./test/lib/bats/bin/bats
+#!./node_modules/bats/libexec/bats
 # If every command in the test case exits with a 0 status code (success), the test passes.
 # In this way, each line is an assertion of truth.
 

@@ -1,9 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # First line of the script is shebang which tells the system how to execute
-# Run this file by typing `bash start.sh`
+# If you make your own `start.sh`, you use these two commands to run it:
+#   chmod +x ./start.sh
+#   ./start.sh
 
-echo Hello World!
+echo Hello User!
 echo "This script explains some bash concepts necessary to understand BATS tests."
+echo "Read the code in 'start.sh'"
 
 echo
 echo "~~VARIABLES~~"
