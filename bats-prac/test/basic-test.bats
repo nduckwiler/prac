@@ -40,3 +40,33 @@
 @test "vim is running" {
   pgrep vim
 }
+
+@test "hello is found in strings.txt" {
+  grep "hello" strings.txt
+}
+
+@test "wazzup is not found in strings.txt" {
+  run grep "wazzup" strings.txt
+  [[ "$status" -eq 1 ]]
+}
+
+@test "a URL is found in strings.txt" {
+  # grep and its variations only succeed if the entire match is on 
+  # a single string
+  egrep "(http:|https:)//.+" strings.txt
+}
+
+@test "backticks are used in loop.js" {
+  grep "\`" loop.js
+}
+
+@test "double quotes are not used in loop.js" {
+  run grep "\"" loop.js
+  [[ "$status" -eq 1 ]]
+}
+
+@test "there are 3 semi-colons in loop.js" {
+  result=$(grep -o ";" loop.js | wc -l)
+  [[ "$result" -eq 3 ]]
+}
+
