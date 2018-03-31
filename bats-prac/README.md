@@ -23,11 +23,11 @@ bats-prac/
     |-- basic-test.bats
     |-- ...
 ```
-`start.sh` provides basic bash knowledge necessary to write BATS tests. Run it with `bash start.sh`.
+`start.sh` provides basic bash knowledge necessary to write BATS tests. Run it with `npm start` or `bash start.sh`.
 
 `basic-test.bats` contains some basic BATS tests. These are good for learning and copying for your own tests.
 
-`test.sh` can be run to execute all `.bats` tests in the `test` directory. Run it with `bash test/test.sh`.
+`test.sh` can be run to execute all `.bats` tests in the `test` directory. Run it with `npm test`.
 
 # Sources
 
