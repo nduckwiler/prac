@@ -12,6 +12,25 @@ describe('Author', () => {
     await mongoose.disconnect();
   });
 
+  describe('#validate', () => {
+    it('gives an error msg', () => {
+      const firstNameAsInt = 1;
+      const familyNameAsInt = 1;
+      const phone = '555-555-5555';
+
+      const author = new Author({
+        family_name: familyNameAsInt,
+        phone: phone
+      });
+
+      author.validateSync();
+
+      console.log(author.errors.first_name);
+
+      //assert.strictEqual(author.first_name, firstNameAsInt.toString());
+    });
+  });
+
   describe('#first_name', () => {
     it('is a String', () => {
       const firstNameAsInt = 1;
