@@ -39,9 +39,9 @@ This will write the results of the query to `stdout`.
 sqlite3 data/sessions.db "SELECT * FROM sessions;" 
 ```
 
-This will write the results of the query to the file `output/tmp.txt`.
+This will write the results of the query to the file `results/output.txt`.
 ```
-sqlite3 data/sessions.db "SELECT * FROM sessions;" > output/tmp.txt
+sqlite3 data/sessions.db "SELECT * FROM sessions;" > results/output.txt
 ```
 
 You can write to a `.txt` or `.sqlite` file. Either works in this case.
@@ -57,13 +57,13 @@ sqlite3 data/sessions.db
 001|guitar|30|studio
 ```
 
-You can write to a file, say `output/tmp.txt`, with `.output FILENAME`
+You can write to a file, say `results/output.txt`, with `.output FILENAME`
 ```
 sqlite3 data/sessions.db
->sqlite .output output/tmp.txt
+>sqlite .output results/output.txt
 >sqlite SELECT * FROM sessions LIMIT 1;
 >sqlite .quit
-cat output/tmp.txt
+cat results/output.txt
 001|guitar|30|studio
 ```
 
