@@ -1,7 +1,31 @@
 # sqlite3-prac
 
-## Installing
-??
+## Getting Started
+
+This README applies specifically to the `sqlite-prac` project.
+
+Clone the repo.
+
+```
+git clone https://github.com/nduckwiler/prac.git
+```
+
+`cd` into `sqlite-prac`.
+
+```
+cd sqlite-prac
+```
+
+Install dependencies.
+
+```
+npm install
+```
+
+Read the rest of this README to learn about sqlite3. The files mentioned in the examples also exist in this repo. 
+
+Run `npm test` to see how the BATS testing framework works with sqlite3.
+
 
 ## Create a temp database from csv (interactive mode)
 Use these instructions to create a temporary sqlite database from `sessions.csv`.
