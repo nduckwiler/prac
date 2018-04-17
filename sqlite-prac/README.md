@@ -22,10 +22,11 @@ Install dependencies.
 npm install
 ```
 
+## How to use this repo
+
 Read the rest of this README to learn about sqlite3. The files mentioned in the examples also exist in this repo. 
 
 Run `npm test` to see how the BATS testing framework works with sqlite3.
-
 
 ## Create a temp database from csv (interactive mode)
 Use these instructions to create a temporary sqlite database from `sessions.csv`.
