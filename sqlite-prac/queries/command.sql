@@ -1,0 +1,2 @@
+SELECT instrument
+FROM sessions;
