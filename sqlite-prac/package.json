@@ -1,0 +1,16 @@
+{
+  "name": "sqlite-prac",
+  "version": "1.0.0",
+  "description": "Practice repo for sqlite",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/bats/libexec/bats test/*.bats"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "bats": "^0.4.2",
+    "sqlite3": "^4.0.0"
+  }
+}
