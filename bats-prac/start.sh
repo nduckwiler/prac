@@ -162,6 +162,14 @@ do
   echo "$dir"
 done
 
+echo
+echo "~~MULTILINE STRINGS~~" 
+echo
+STR="First line.
+Second line.
+Third line."
+echo $STR > no_linebreaks.txt
+echo "$STR" > yes_linebreaks.txt
 
 echo
 echo "~~CUSTOM FUNCTIONS- TODO~~"

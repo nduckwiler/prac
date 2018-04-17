@@ -41,32 +41,54 @@
   pgrep vim
 }
 
-@test "hello is found in strings.txt" {
-  grep "hello" strings.txt
+@test "hello is found in assets/strings.txt" {
+  grep "hello" assets/strings.txt
 }
 
-@test "wazzup is not found in strings.txt" {
-  run grep "wazzup" strings.txt
+@test "wazzup is not found in assets/strings.txt" {
+  run grep "wazzup" assets/strings.txt
   [[ "$status" -eq 1 ]]
 }
 
-@test "a URL is found in strings.txt" {
+@test "a URL is found in assets/strings.txt" {
   # grep and its variations only succeed if the entire match is on 
   # a single string
-  egrep "(http:|https:)//.+" strings.txt
+  egrep "(http:|https:)//.+" assets/strings.txt
 }
 
-@test "backticks are used in loop.js" {
-  grep "\`" loop.js
+@test "backticks are used in assets/loop.js" {
+  grep "\`" assets/loop.js
 }
 
-@test "double quotes are not used in loop.js" {
-  run grep "\"" loop.js
+@test "double quotes are not used in assets/loop.js" {
+  run grep "\"" assets/loop.js
   [[ "$status" -eq 1 ]]
 }
 
-@test "there are 3 semi-colons in loop.js" {
-  result=$(grep -o ";" loop.js | wc -l)
+@test "there are 3 semi-colons in assets/loop.js" {
+  result=$(grep -o ";" assets/loop.js | wc -l)
   [[ "$result" -eq 3 ]]
+}
+
+@test "assets/loop.js is written exactly how I want it" {
+  str="for (let i = 0; i < 4; i++) {
+      console.log(\`i equals \${i}\`);
+    }"
+  echo "$str" > ${BATS_TMPDIR}/tmp.txt
+
+  run diff -iw ${BATS_TMPDIR}/tmp.txt assets/loop.js
+  [[ "$status" -eq 0 ]]
+}
+
+@test "root dir contains /bats" {
+  # note that this pwd prints the root of the project 
+  pwd > ${BATS_TMPDIR}/tmp.txt
+  grep "/bats" ${BATS_TMPDIR}/tmp.txt 
+}
+
+@test "assets/empty.txt is empty" {
+  touch assets/empty.txt 
+  run diff assets/blank.txt assets/empty.txt
+  [ "$status" -eq 0 ]
 }
 
