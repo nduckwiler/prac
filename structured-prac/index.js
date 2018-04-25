@@ -1,5 +1,7 @@
 const Calculate = {}
-Calculate.sum = (arg) => {
-  const x = 10;
+
+Calculate.add = (arg) => {
+  return arg + 5;
 };
+
 module.exports = Calculate;
