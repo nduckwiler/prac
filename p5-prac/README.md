@@ -65,3 +65,4 @@ And replace them with these:
 # Sources
 
 - The [p5 website](https://p5js.org)
+- [SVG colors](http://www.december.com/html/spec/colorsvg.html): the color names defined by the SVG specification
