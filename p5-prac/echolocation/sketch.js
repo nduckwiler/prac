@@ -4,8 +4,10 @@ let isHidden = true;
 var env, analyzer;
 
 function preload() {
-  sounds[0] = loadSound('./assets/dee.mp3');
-  sounds[1] = loadSound('./assets/gruffy.mp3');
+  sounds[0] = loadSound('./assets/synth-loop.mp3');
+  sounds[1] = loadSound('./assets/slug-synth-loop.mp3');
+  //sounds[0] = loadSound('./assets/dee.mp3');
+  //sounds[1] = loadSound('./assets/gruffy.mp3');
 }
 
 function setup() {
