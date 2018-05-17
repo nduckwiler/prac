@@ -25,13 +25,13 @@ handlers.response = { speak };
 // Now you can call `this.emit('foo', 'bar', 'baz', 'blah')
 // and the args will be stored in `calledEmitWithArgs`
 const calledEmitWithArgs = [];
-handlers.emit = function(a,b,c,d) {
+handlers.emit = function(a,b,c,d,e) {
   calledEmitWithArgs[0] = a;
   calledEmitWithArgs[1] = b;
   calledEmitWithArgs[2] = c;
   calledEmitWithArgs[3] = d;
+  calledEmitWithArgs[4] = e;
 }
-
 
 // In your tests, your inputs will be properties in handlers.event
 // like `handlers.event.request.dialogState`
@@ -39,10 +39,12 @@ handlers.emit = function(a,b,c,d) {
 // like `this.emit(':delegate')`
 // Make assertions on `calledEmitWithArgs`
 describe('FindVideoByGenreIntent', () => {
-  it('calls this.emit with 4 specific strings', () => {
+  it('calls this.emit with 4 specific strings when not completed and no genre collected', () => {
     // Set up your test with the desired conditions
     handlers.event.request.dialogState = 'IN_PROGRESS';
-    handlers.event.request.intent.slots.genre.value = null;
+    handlers.event.request.intent.slots.decade.value = '80s'
+    handlers.event.request.intent.slots.videoType.value = 'movie'
+    delete handlers.event.request.intent.slots.genre.value;
 
     // Define your expected args to `this.emit`
     const first = ':elicitSlot';
@@ -58,6 +60,23 @@ describe('FindVideoByGenreIntent', () => {
     assert.equal(calledEmitWithArgs[1], second, `Expected second arg to be ${second}`);
     assert.include(calledEmitWithArgs[2], third, `Expected third arg to include: ${third}`);
     assert.include(calledEmitWithArgs[3], fourth, `Expected fourth arg to include: ${fourth}`);
+  });
+
+  it('calls this.emit with delegate when all slots collected', () => {
+    // Set up your test with the desired conditions
+    handlers.event.request.dialogState = 'IN_PROGRESS';
+    handlers.event.request.intent.slots.decade.value = '80s'
+    handlers.event.request.intent.slots.videoType.value = 'movie'
+    handlers.event.request.intent.slots.genre.value = 'action'
+
+    // Define your expected args to `this.emit`
+    const first = ':delegate';
+
+    // Call the handler function
+    handlers.FindVideoByGenreIntent();
+
+    // Make assertions
+    assert.equal(calledEmitWithArgs[0], first, `Expected first arg to be ${first}`);
   });
 });
 
