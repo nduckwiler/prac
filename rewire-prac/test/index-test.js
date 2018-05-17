@@ -5,11 +5,11 @@ const assert = require('chai').assert;
 const event = require('../request.json');
 
 // A mocked node module called 'alexa-sdk' is created in the node_modules folder
-var myModule = rewire("../index.js")
+const myModule = rewire("../index.js")
 
 // In index.js, the `handlers` object contains the intent request handlers
 // like `LaunchRequest`, `SessionEndedRequest`, etc.
-var handlers = myModule.__get__("handlers");
+const handlers = myModule.__get__("handlers");
 
 // The handler functions in `handlers` call `this.emit`, `this.event`, etc.
 // This will mock up everything in `this`
