@@ -39,11 +39,34 @@ handlers.emit = function(a,b,c,d,e) {
 // like `this.emit(':delegate')`
 // Make assertions on `calledEmitWithArgs`
 describe('FindVideoByGenreIntent', () => {
-  it('calls this.emit with 4 specific strings when not completed and no genre collected', () => {
+  it('calls this.emit with :elicitSlot when dialog started', () => {
+    // Set up your test with the desired conditions
+    handlers.event.request.dialogState = 'STARTED';
+    //handlers.event.request.intent.slots.decade.value = '80s'
+    //handlers.event.request.intent.slots.videoType.value = 'movie'
+    delete handlers.event.request.intent.slots.genre.value;
+    delete handlers.event.request.intent.slots.decade.value;
+    delete handlers.event.request.intent.slots.videoType.value;
+
+    // Define your expected args to `this.emit`
+    const first = ':elicitSlot';
+    const second = 'genre';
+    const third = 'What genre would you like. You can say';
+    const fourth = 'Please tell me the genre for the video you would like. You can say';
+
+    // Call the handler function
+    handlers.FindVideoByGenreIntent();
+
+    // Make assertions
+    assert.equal(calledEmitWithArgs[0], first, `Expected first arg to this.emit to be ${first}`);
+    assert.equal(calledEmitWithArgs[1], second, `Expected second arg to this.emit to be ${second}`);
+    assert.include(calledEmitWithArgs[2], third, `Expected third arg to this.emit to include: ${third}`);
+    assert.include(calledEmitWithArgs[3], fourth, `Expected fourth arg to this.emit to include: ${fourth}`);
+  });
+
+  it('calls this.emit with :elicitSlot when dialog not completed, genre not collected', () => {
     // Set up your test with the desired conditions
     handlers.event.request.dialogState = 'IN_PROGRESS';
-    handlers.event.request.intent.slots.decade.value = '80s'
-    handlers.event.request.intent.slots.videoType.value = 'movie'
     delete handlers.event.request.intent.slots.genre.value;
 
     // Define your expected args to `this.emit`
@@ -56,18 +79,18 @@ describe('FindVideoByGenreIntent', () => {
     handlers.FindVideoByGenreIntent();
 
     // Make assertions
-    assert.equal(calledEmitWithArgs[0], first, `Expected first arg to be ${first}`);
-    assert.equal(calledEmitWithArgs[1], second, `Expected second arg to be ${second}`);
-    assert.include(calledEmitWithArgs[2], third, `Expected third arg to include: ${third}`);
-    assert.include(calledEmitWithArgs[3], fourth, `Expected fourth arg to include: ${fourth}`);
+    assert.equal(calledEmitWithArgs[0], first, `Expected first arg to this.emit to be ${first}`);
+    assert.equal(calledEmitWithArgs[1], second, `Expected second arg to this.emit to be ${second}`);
+    assert.include(calledEmitWithArgs[2], third, `Expected third arg to this.emit to include: ${third}`);
+    assert.include(calledEmitWithArgs[3], fourth, `Expected fourth arg to this.emit to include: ${fourth}`);
   });
 
-  it('calls this.emit with delegate when all slots collected', () => {
+  it('calls this.emit with delegate when dialog not completed, and genre collected', () => {
     // Set up your test with the desired conditions
     handlers.event.request.dialogState = 'IN_PROGRESS';
-    handlers.event.request.intent.slots.decade.value = '80s'
-    handlers.event.request.intent.slots.videoType.value = 'movie'
     handlers.event.request.intent.slots.genre.value = 'action'
+    delete handlers.event.request.intent.slots.decade.value;
+    delete handlers.event.request.intent.slots.videoType.value;
 
     // Define your expected args to `this.emit`
     const first = ':delegate';
@@ -76,7 +99,7 @@ describe('FindVideoByGenreIntent', () => {
     handlers.FindVideoByGenreIntent();
 
     // Make assertions
-    assert.equal(calledEmitWithArgs[0], first, `Expected first arg to be ${first}`);
+    assert.equal(calledEmitWithArgs[0], first, `Expected first arg to this.emit to be ${first}`);
   });
 });
 
