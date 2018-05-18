@@ -1,0 +1,91 @@
+{
+	"version": "1.0",
+	"session": {
+		"new": false,
+		"sessionId": "amzn1.echo-api.session.322a82b3-57f2-4b67-a9be-adba8ab0af79",
+		"application": {
+			"applicationId": "amzn1.ask.skill.5e0d22c9-5718-4f3e-8237-d1bcafe6d89b"
+		},
+		"user": {
+			"userId": "amzn1.ask.account.AFLD3OJWOCAPG24YTT5KYEIMJEFRNZ6JDISAYCW4ZXALDUXQE5YO74E2IMVKWRDR3PRQ7LQYS7GEBU3EKIAQAJNZJFDDKQE4QFFVWUBGXJXUNTNSKSLDRUU6XI7ECXPGH5RIYQLGPKGYWRZGEEXS4YPWTKR3BWQRUNZHTIZWEU5BMYMMMSFGFAABISQX2DIMPHAVNUJJ4O2CB5Q"
+		}
+	},
+	"context": {
+		"AudioPlayer": {
+			"playerActivity": "IDLE"
+		},
+		"Display": {
+			"token": ""
+		},
+		"System": {
+			"application": {
+				"applicationId": "amzn1.ask.skill.5e0d22c9-5718-4f3e-8237-d1bcafe6d89b"
+			},
+			"user": {
+				"userId": "amzn1.ask.account.AFLD3OJWOCAPG24YTT5KYEIMJEFRNZ6JDISAYCW4ZXALDUXQE5YO74E2IMVKWRDR3PRQ7LQYS7GEBU3EKIAQAJNZJFDDKQE4QFFVWUBGXJXUNTNSKSLDRUU6XI7ECXPGH5RIYQLGPKGYWRZGEEXS4YPWTKR3BWQRUNZHTIZWEU5BMYMMMSFGFAABISQX2DIMPHAVNUJJ4O2CB5Q"
+			},
+			"device": {
+				"deviceId": "amzn1.ask.device.AH6FPVL67S42CVDOIKD25FI2IB52C7WQ7635UUDYI7MJY6RET26QRI3NDKHGDEOTZ55ORYQZKLWCAK3EGG7LKMC5W45CA3OPFYRE7OXD7QZKQQAVGLW7UFYCMESZDPZZBA6PCLLWAHAUSFDFCOJJHQJGYNKA",
+				"supportedInterfaces": {
+					"AudioPlayer": {},
+					"Display": {
+						"templateVersion": "1.0",
+						"markupVersion": "1.0"
+					}
+				}
+			},
+			"apiEndpoint": "https://api.amazonalexa.com",
+			"apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLjVlMGQyMmM5LTU3MTgtNGYzZS04MjM3LWQxYmNhZmU2ZDg5YiIsImV4cCI6MTUyNjYwOTUzMSwiaWF0IjoxNTI2NjA1OTMxLCJuYmYiOjE1MjY2MDU5MzEsInByaXZhdGVDbGFpbXMiOnsiY29uc2VudFRva2VuIjpudWxsLCJkZXZpY2VJZCI6ImFtem4xLmFzay5kZXZpY2UuQUg2RlBWTDY3UzQyQ1ZET0lLRDI1RkkySUI1MkM3V1E3NjM1VVVEWUk3TUpZNlJFVDI2UVJJM05ES0hHREVPVFo1NU9SWVFaS0xXQ0FLM0VHRzdMS01DNVc0NUNBM09QRllSRTdPWEQ3UVpLUVFBVkdMVzdVRllDTUVTWkRQWlpCQTZQQ0xMV0FIQVVTRkRGQ09KSkhRSkdZTktBIiwidXNlcklkIjoiYW16bjEuYXNrLmFjY291bnQuQUZMRDNPSldPQ0FQRzI0WVRUNUtZRUlNSkVGUk5aNkpESVNBWUNXNFpYQUxEVVhRRTVZTzc0RTJJTVZLV1JEUjNQUlE3TFFZUzdHRUJVM0VLSUFRQUpOWkpGRERLUUU0UUZGVldVQkdYSlhVTlROU0tTTERSVVU2WEk3RUNYUEdINVJJWVFMR1BLR1lXUlpHRUVYUzRZUFdUS1IzQldRUlVOWkhUSVpXRVU1Qk1ZTU1NU0ZHRkFBQklTUVgyRElNUEhBVk5VSko0TzJDQjVRIn19.ayPDXpmNqModcLbTMTkPJadInWzwz0_bM9QDKwo5ShgzTgBcJZJw5CZR1aWn6QrI0e-ZehOXe9TuJ-JEC-kThcUBlHEb5OYy1rL8UU_KEMLOq_8pEv-JGRFlnDU81XCfDJC5kNR_UAKSSOiCiX6gvuU9xluw3tpBNajPlG0lEHES3XQprVsUBVDB05ZlvJ5y_fEz5KmeWI9BQFOuXhIi60_Be2HqwUFh3I-YNntM5n6EnP24MJOM3GS4tlImGTFI2fLnkp7dIC_nAz2Py1c9_wie3PNRAYXruznTWUJhR0wwE4pzGeTVxSkC-cthnQg2mFOJDZSEW1CDnKkEQ4SEaA"
+		}
+	},
+	"request": {
+		"type": "IntentRequest",
+		"requestId": "amzn1.echo-api.request.d7e89678-845e-4e5b-985f-dac5056d3829",
+		"timestamp": "2018-05-18T01:12:11Z",
+		"locale": "en-US",
+		"intent": {
+			"name": "BookFlightIntent",
+			"confirmationStatus": "NONE",
+			"slots": {
+				"departureDate": {
+					"name": "departureDate",
+					"confirmationStatus": "NONE"
+				},
+				"arrivalCity": {
+					"name": "arrivalCity",
+					"value": "Seattle",
+					"confirmationStatus": "CONFIRMED"
+				},
+				"searchPhrase": {
+					"name": "searchPhrase",
+					"value": "find me",
+					"resolutions": {
+						"resolutionsPerAuthority": [
+							{
+								"authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.5e0d22c9-5718-4f3e-8237-d1bcafe6d89b.SEARCH_PHRASE",
+								"status": {
+									"code": "ER_SUCCESS_MATCH"
+								},
+								"values": [
+									{
+										"value": {
+											"name": "find me",
+											"id": "95887e881b4152f6351526db8574e29a"
+										}
+									}
+								]
+							}
+						]
+					},
+					"confirmationStatus": "NONE"
+				},
+				"departureCity": {
+					"name": "departureCity",
+					"value": "new york",
+					"confirmationStatus": "DENIED"
+				}
+			}
+		},
+		"dialogState": "IN_PROGRESS"
+	}
+}
