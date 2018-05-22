@@ -5,7 +5,7 @@ const assert = require('chai').assert;
 const event = require('../request-scenes.json');
 
 // A mocked node module called 'alexa-sdk' is created in the node_modules folder
-const myModule = rewire("../index-scene-2.js")
+const myModule = rewire("../index-scene-3.js")
 
 // In index.js, the `handlers` object contains the intent request handlers
 // like `LaunchRequest`, `SessionEndedRequest`, etc.
@@ -38,54 +38,43 @@ handlers.emit = function(a,b,c,d,e) {
 // and your output will be the args passed to `this.emit`
 // like `this.emit(':delegate')`
 // Make assertions on `calledEmitWithArgs`
-describe('BookFlightIntent-Scene 2', () => {
-  it('confirms Slot with updated intent when dialog not completed and departureCity not collected', () => {
+describe('BookFlightIntent-Scene 3', () => {
+  it('confirms intent when dialog not completed, all slots collected, departureDate confirmed, and intent is not confirmed', () => {
     // Set up your test with the desired conditions
     handlers.event.request.dialogState = 'IN_PROGRESS';
-    delete handlers.event.request.intent.slots.departureCity.value;
-    handlers.event.request.intent.slots.arrivalCity.value = 'miami';
+    handlers.event.request.intent.slots.arrivalCity.value = 'miami'
+    handlers.event.request.intent.slots.departureCity.value = 'new york'
+    handlers.event.request.intent.slots.departureCity.confirmationStatus = 'CONFIRMED';
+    handlers.event.request.intent.confirmationStatus = 'NONE';
 
     // Define your expected args to `this.emit`
-    const first = ':confirmSlot';
-    const second = 'departureCity';
-    const third = 'New York';
-    const fourth = third;
-    const fifth = {
-                    slots: {
-                      departureCity: {
-                        value: 'new york'
-                      }
-                    }
-                  };
+    const first = ':confirmIntent';
 
     // Call the handler function
     handlers.BookFlightIntent();
 
     // Make assertions
     assert.equal(calledEmitWithArgs[0], first, `Expected first arg to this.emit to be ${first}`);
-    assert.equal(calledEmitWithArgs[1], second, `Expected second arg to this.emit to be ${second}`);
-    assert.include(calledEmitWithArgs[2], third, `Expected third arg to this.emit to include: ${third}`);
-    assert.include(calledEmitWithArgs[3], fourth, `Expected fourth arg to this.emit to include: ${fourth}`);
-    assert.include(calledEmitWithArgs[4].slots.departureCity.value, fifth.slots.departureCity.value, `Expected fifth arg to include: ${fifth}`);
+    assert.match(calledEmitWithArgs[1], /(price|cost|\$|dollars)/, 'Expected speechOutput to include `price`, `cost`, `$`, or `dollars`');
+    assert.match(calledEmitWithArgs[2], /(price|cost|\$|dollars)/, 'Expected repromptSpeech to include `price`, `cost`, `$`, or `dollars`');
   });
 
-  it('elicits slot when dialog not completed, departureCity is collected, and departureCity confirmation is denied', () => {
+  it('reprompts when intent is denied', () => {
     // Set up your test with the desired conditions
     handlers.event.request.dialogState = 'IN_PROGRESS';
-    handlers.event.request.intent.slots.departureCity.value = 'seattle';
-    handlers.event.request.intent.slots.departureCity.confirmationStatus = 'DENIED';
-    handlers.event.request.intent.slots.arrivalCity.value = 'miami';
+    handlers.event.request.intent.slots.arrivalCity.value = 'miami'
+    handlers.event.request.intent.slots.departureCity.value = 'new york'
+    handlers.event.request.intent.slots.departureCity.confirmationStatus = 'CONFIRMED';
+    handlers.event.request.intent.confirmationStatus = 'DENIED';
 
     // Define your expected args to `this.emit`
-    const first = ':elicitSlot';
-    const second = 'departureCity';
+    const first = ':responseReady';
 
     // Call the handler function
     handlers.BookFlightIntent();
 
     // Make assertions
     assert.equal(calledEmitWithArgs[0], first, `Expected first arg to this.emit to be ${first}`);
-    assert.equal(calledEmitWithArgs[1], second, `Expected second arg to this.emit to be ${second}`);
   });
 });
 

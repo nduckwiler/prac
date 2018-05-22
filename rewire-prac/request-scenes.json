@@ -1,0 +1,92 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": false,
+    "sessionId": "",
+    "application": {
+      "applicationId": ""
+    },
+    "user": {
+      "userId": ""
+    }
+  },
+  "context": {
+    "AudioPlayer": {
+      "playerActivity": "IDLE"
+    },
+    "Display": {
+      "token": ""
+    },
+    "System": {
+      "application": {
+        "applicationId": ""
+      },
+      "user": {
+        "userId": ""
+      },
+      "device": {
+        "deviceId": "",
+        "supportedInterfaces": {
+          "AudioPlayer": {},
+          "Display": {
+            "templateVersion": "1.0",
+            "markupVersion": "1.0"
+          }
+        }
+      },
+      "apiEndpoint": "https://api.amazonalexa.com",
+      "apiAccessToken": ""
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "",
+    "timestamp": "2018-05-22T17:48:24Z",
+    "locale": "en-US",
+    "intent": {
+      "name": "BookFlightIntent",
+      "confirmationStatus": "CONFIRMED",
+      "slots": {
+        "departureDate": {
+          "name": "departureDate",
+          "value": "2018-05-24",
+          "confirmationStatus": "CONFIRMED"
+        },
+        "arrivalCity": {
+          "name": "arrivalCity",
+          "value": "Seattle",
+          "confirmationStatus": "NONE"
+        },
+        "searchPhrase": {
+          "name": "searchPhrase",
+          "value": "book me",
+          "resolutions": {
+            "resolutionsPerAuthority": [
+              {
+                "authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.5e0d22c9-5718-4f3e-8237-d1bcafe6d89b.SEARCH_PHRASE",
+                "status": {
+                  "code": "ER_SUCCESS_MATCH"
+                },
+                "values": [
+                  {
+                    "value": {
+                      "name": "book me",
+                      "id": "ad572806c97e44046700521f8f2b4955"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "confirmationStatus": "NONE"
+        },
+        "departureCity": {
+          "name": "departureCity",
+          "value": "New York",
+          "confirmationStatus": "NONE"
+        }
+      }
+    },
+    "dialogState": "IN_PROGRESS"
+  }
+}

@@ -15,41 +15,43 @@ const handlers = {
     },
     'BookFlightIntent' : function(){
         console.log(JSON.stringify(this.event));
-        const listOfCities = getListOfCities();
 
         if (this.event.request.dialogState !== 'COMPLETED') {
+          const intentConfirmationStatus = this.event.request.intent.confirmationStatus;
+          const departureCityRequestedByUser = 'new york'; //defaulting departureCity to new york
+          const arrivalCityRequestedByUser = this.event.request.intent.slots.arrivalCity.value;
+          const departureDateRequestedByUser = this.event.request.intent.slots.departureDate.value;
 
-          if (!this.event.request.intent.slots.arrivalCity.value) {
-            // Prompt for arrivalCity slot if it has not already been provided
-            const slotToElicit = 'arrivalCity'
-            const speechOutput = 'What city would you like to fly to. You can say ' + listOfCities
-            const repromptSpeech = 'Please tell me the name of the city you would like to fly to. You can say ' + listOfCities
-            this.emit(':elicitSlot', slotToElicit, speechOutput, repromptSpeech)
+          // IF DIALOG NOT COMPLETED, ALL SLOTS COLLECTED, 
+          // `departureDate` IS CONFIRMED, AND INTENT NOT CONFIRMED, 
+          // CONFIRM INTENT WITH PRICE 
+          if (arrivalCityRequestedByUser && departureCityRequestedByUser && departureDateRequestedByUser 
+            && this.event.request.intent.slots.departureDate.confirmationStatus === 'CONFIRMED'
+            && intentConfirmationStatus === 'NONE') {
+            const recommendedFlight = flights
+              [departureCityRequestedByUser.toLowerCase()]
+              [arrivalCityRequestedByUser.toLowerCase()]
+              [departureDateRequestedByUser];
+            const price = recommendedFlight['price'];
+
+            const speechOutput = 'A flight from ' + departureCityRequestedByUser + ' to ' + arrivalCityRequestedByUser + ' on ' + departureDateRequestedByUser + ' costs ' + price + '. Is that okay?'
+            const repromptSpeech = speechOutput;
+            this.emit(':confirmIntent', speechOutput, repromptSpeech)
           }
-          // ELSE IF DIALOG NOT COMPLETED AND `departureCity` NOT COLLECTED,
-          // UPDATE INTENT WITH 'new york' DEPARTURE CITY AND CONFIRM SLOT
-          else if (!this.event.request.intent.slots.departureCity.value){
-            const updatedIntent = this.event.request.intent;
-            updatedIntent.slots.departureCity.value = 'new york'
-            this.emit(':confirmSlot', 'departureCity', "I'll look for flights out of New York. Is that okay?", 'Is the departure city New York?', updatedIntent);
-          }
-          // ELSE IF DIALOG NOT COMPLETED AND `departureCity` IS COLLECTED 
-          // AND `departureCity` is DENIED,
-          // ELICIT THAT SLOT AGAIN
-          else if (this.event.request.intent.slots.departureCity.value && this.event.request.intent.slots.departureCity.confirmationStatus === 'DENIED'){
-            const slotToElicit = 'departureCity';
-            const speechOutput = 'What city would you like to fly from? You can say ' + listOfCities;
-            const repromptSpeech = 'Please tell me the name of the city you would like to fly out of. You can say ' + listOfCities;
-            this.emit(':elicitSlot', slotToElicit, speechOutput, repromptSpeech)
+          // ELSE IF INTENT DENIED, 
+          // REPROMPT WITH `response.speak.listen` AND `:responseReady`
+          else if (intentConfirmationStatus === 'DENIED') {
+            this.response.speak('Ok, canceling...What city would you like to fly to? ' + HELP_REPROMPT).listen('What city would you like to fly to?' + HELP_REPROMPT);
+            this.emit(':responseReady');
           }
           else {
-             this.emit(':delegate');
+            this.emit(':delegate');
           }
         }
         else {
           // Dialog is now complete and all required slots should be filled
 
-          const departureCityRequestedByUser = this.event.request.intent.slots.departureCity.value;
+          const departureCityRequestedByUser = 'new york'; //defaulting departureCity to new york
           const arrivalCityRequestedByUser = this.event.request.intent.slots.arrivalCity.value;
           const departureDateRequestedByUser = this.event.request.intent.slots.departureDate.value;
           const recommendedFlight = flights
@@ -164,15 +166,6 @@ const flights = {
         }
       }
 };
-
-function getListOfCities(){
-  var availableCities = ""
-  for (var city in flights){
-    console.log(city)
-    availableCities = city + ", " + availableCities
-  }
-  return availableCities;
-}
 
 function randomize(myData) { // the parameter is an array [] of words or phrases
   var i = 0;
