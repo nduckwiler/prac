@@ -21,12 +21,13 @@ const handlers = {
           const departureCityRequestedByUser = 'new york'; //defaulting departureCity to new york
           const arrivalCityRequestedByUser = this.event.request.intent.slots.arrivalCity.value;
           const departureDateRequestedByUser = this.event.request.intent.slots.departureDate.value;
+          const departureDateConfirmationStatus = this.event.request.intent.slots.departureDate.confirmationStatus;
 
           // IF DIALOG NOT COMPLETED, ALL SLOTS COLLECTED, 
           // `departureDate` IS CONFIRMED, AND INTENT NOT CONFIRMED, 
           // CONFIRM INTENT WITH PRICE 
           if (arrivalCityRequestedByUser && departureCityRequestedByUser && departureDateRequestedByUser 
-            && this.event.request.intent.slots.departureDate.confirmationStatus === 'CONFIRMED'
+            && departureDateConfirmationStatus === 'CONFIRMED'
             && intentConfirmationStatus === 'NONE') {
             const recommendedFlight = flights
               [departureCityRequestedByUser.toLowerCase()]
@@ -179,3 +180,4 @@ exports.handler = function (event, context, callback) {
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
+
