@@ -48,15 +48,9 @@ describe('BookFlightIntent-Scene 2', () => {
     // Define your expected args to `this.emit`
     const first = ':confirmSlot';
     const second = 'departureCity';
-    const third = 'New York';
+    const third = 'new york';
     const fourth = third;
-    const fifth = {
-                    slots: {
-                      departureCity: {
-                        value: 'new york'
-                      }
-                    }
-                  };
+    const fifth = 'new york';
 
     // Call the handler function
     handlers.BookFlightIntent();
@@ -64,9 +58,9 @@ describe('BookFlightIntent-Scene 2', () => {
     // Make assertions
     assert.equal(calledEmitWithArgs[0], first, `Expected first arg to this.emit to be ${first}`);
     assert.equal(calledEmitWithArgs[1], second, `Expected second arg to this.emit to be ${second}`);
-    assert.include(calledEmitWithArgs[2], third, `Expected third arg to this.emit to include: ${third}`);
-    assert.include(calledEmitWithArgs[3], fourth, `Expected fourth arg to this.emit to include: ${fourth}`);
-    assert.include(calledEmitWithArgs[4].slots.departureCity.value, fifth.slots.departureCity.value, `Expected fifth arg to include: ${fifth}`);
+    assert.include(calledEmitWithArgs[2].toLowerCase(), third, `Expected third arg to this.emit to include: ${third}`);
+    assert.include(calledEmitWithArgs[3].toLowerCase(), fourth, `Expected fourth arg to this.emit to include: ${fourth}`);
+    assert.equal(calledEmitWithArgs[4].slots.departureCity.value.toLowerCase(), fifth, `Expected 'updatedIntent.slots.departureCity.value' to equal '${fifth}'`);
   });
 
   it('elicits slot when dialog not completed, departureCity is collected, and departureCity confirmation is denied', () => {
