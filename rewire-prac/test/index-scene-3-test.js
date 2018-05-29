@@ -45,6 +45,7 @@ describe('BookFlightIntent-Scene 3', () => {
     handlers.event.request.intent.slots.arrivalCity.value = 'miami'
     handlers.event.request.intent.slots.departureCity.value = 'new york'
     handlers.event.request.intent.slots.departureCity.confirmationStatus = 'CONFIRMED';
+    handlers.event.request.intent.slots.departureDate.value = '2018-06-24'
     handlers.event.request.intent.confirmationStatus = 'NONE';
 
     // Define your expected args to `this.emit`
@@ -55,8 +56,8 @@ describe('BookFlightIntent-Scene 3', () => {
 
     // Make assertions
     assert.equal(calledEmitWithArgs[0], first, `Expected first arg to this.emit to be ${first}`);
-    assert.match(calledEmitWithArgs[1], /(price|cost|\$|dollars)/, 'Expected speechOutput to include `price`, `cost`, `$`, or `dollars`');
-    assert.match(calledEmitWithArgs[2], /(price|cost|\$|dollars)/, 'Expected repromptSpeech to include `price`, `cost`, `$`, or `dollars`');
+    assert.match(calledEmitWithArgs[1], /(price|cost|\$|dollars)/, 'Expected speechOutput to mention `price`, `cost`, `$`, or `dollars`');
+    assert.match(calledEmitWithArgs[2], /(price|cost|\$|dollars)/, 'Expected repromptSpeech to mention `price`, `cost`, `$`, or `dollars`');
   });
 
   it('reprompts when intent is denied', () => {
@@ -65,6 +66,7 @@ describe('BookFlightIntent-Scene 3', () => {
     handlers.event.request.intent.slots.arrivalCity.value = 'miami'
     handlers.event.request.intent.slots.departureCity.value = 'new york'
     handlers.event.request.intent.slots.departureCity.confirmationStatus = 'CONFIRMED';
+    handlers.event.request.intent.slots.departureDate.value = '2018-06-24'
     handlers.event.request.intent.confirmationStatus = 'DENIED';
 
     // Define your expected args to `this.emit`
