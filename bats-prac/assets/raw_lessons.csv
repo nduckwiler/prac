@@ -1,0 +1,13 @@
+track_uuid,track_slug,module_uuid,module_slug,content_item_uuid,content_item_slug,content_item_name,content_type,is_deprecated,validation
+1,ready-javascript-201-optional,64,ready-javascript-201,101,javascript-modules,JavaScript Modules,lesson,FALSE,not available to users
+2,jquery-ext,65,jquery-selectors,102,jquery-selectors,jQuery Selectors,lesson,TRUE,deprecated
+3,learn-query,66,jquery-iterators,103,jquery-iterators,jQuery Iterators,lesson,FALSE,not available to users
+4,,67,learn-seaborn,104,learn-seaborn,Learn Seaborn,lesson,FALSE,less than 20 wks
+5,introduction-to-javascript,68,learn-javascript-introduction,105,learn-javascript-introduction,Introduction to JavaScript,lesson,FALSE,valid
+6,introduction-to-javascript,69,learn-javascript-variables,106,learn-javascript-variables,JavaScript Variables,lesson,FALSE,valid
+7,learn-python,70,python-variables,107,python-variables,Python Variables,lesson,FALSE,valid
+8,learn-python,71,python-lists,108,python-lists,Python Lists,lesson,FALSE,valid
+9,learn-sql,72,sql-queries,109,sql-queries,SQL Queries,lesson,FALSE,valid
+10,learn-sql,73,sql-aggregates,110,sql-aggregates,SQL Aggregates,lesson,FALSE,valid
+11,,74,sql-warby-parker,111,sql-warby-parker,SQL Warby Parker,lesson,FALSE,less than 20 wks
+12,,75,learn-python-lists,112,learn-python-lists,Learn Python: Lists,lesson,FALSE,less than 20 wks
