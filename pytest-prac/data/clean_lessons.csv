@@ -1,0 +1,7 @@
+track_uuid,track_slug,module_uuid,module_slug,content_item_uuid,content_item_slug,content_item_name,content_type,is_deprecated,validation
+5,introduction-to-javascript,68,learn-javascript-introduction,105,learn-javascript-introduction,Introduction to JavaScript,lesson,FALSE,valid
+6,introduction-to-javascript,69,learn-javascript-variables,106,learn-javascript-variables,JavaScript Variables,lesson,FALSE,valid
+7,learn-python,70,python-variables,107,python-variables,Python Variables,lesson,FALSE,valid
+8,learn-python,71,python-lists,108,python-lists,Python Lists,lesson,FALSE,valid
+9,learn-sql,72,sql-queries,109,sql-queries,SQL Queries,lesson,FALSE,valid
+10,learn-sql,73,sql-aggregates,110,sql-aggregates,SQL Aggregates,lesson,FALSE,valid
