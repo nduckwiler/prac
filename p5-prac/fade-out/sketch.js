@@ -5,10 +5,10 @@ class Circle {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.r = 20;
+    this.r = 5;
     this.opacity = 255;
     this.decayRate = 1.5;
-    this.growthRate = 2;
+    this.growthRate = 4;
   }
 
   update() {
@@ -20,7 +20,7 @@ class Circle {
   }
 
   grow() {
-    this.r += this.growthRate;
+    this.r += this.growthRate * (25/this.r);
   }
 }
 
