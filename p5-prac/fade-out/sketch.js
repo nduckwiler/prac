@@ -1,4 +1,5 @@
 var circles = [];
+var spawn;
 
 class Circle {
   constructor(x, y) {
@@ -6,7 +7,8 @@ class Circle {
     this.y = y;
     this.r = 20;
     this.opacity = 255;
-    this.decayRate = 2;
+    this.decayRate = 1.5;
+    this.growthRate = 2;
   }
 
   update() {
@@ -16,6 +18,10 @@ class Circle {
   expired() {
     return this.opacity <= 0;
   }
+
+  grow() {
+    this.r += this.growthRate;
+  }
 }
 
 function setup() {
@@ -23,7 +29,12 @@ function setup() {
 }
 
 function mousePressed() {
-  circles.push(new Circle(mouseX, mouseY));
+  spawn = new Circle(mouseX, mouseY);
+}
+
+function mouseClicked() {
+  circles.push(spawn);
+  spawn = null;
 }
 
 function draw() {
@@ -34,7 +45,16 @@ function draw() {
   fill(255, 255, 255, 255);
   text(`circles array length: ${circles.length}`, 10, 10);
 
+  // Grow spawn if it exists
+  if (spawn && mouseIsPressed) {
+    spawn.grow();
+  }
+
   // Draw circles
+  if (spawn) {
+    ellipse(spawn.x, spawn.y, spawn.r);
+  }
+
   circles.forEach((circle) => {
     fill(255, 255, 255, circle.opacity);
     ellipse(circle.x, circle.y, circle.r);
