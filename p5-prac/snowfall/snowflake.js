@@ -8,6 +8,10 @@ class Snowflake {
     this.acc = createVector();
   }
 
+  applyForce(force) {
+    this.acc.add(force);
+  }
+
   update() {
     this.vel.add(this.acc);
     this.pos.add(this.vel);
@@ -15,13 +19,14 @@ class Snowflake {
     this.acc.mult(0);
   }
 
-  applyForce(force) {
-    this.acc.add(force);
-  }
-
   render() {
     stroke(255);
     strokeWeight(this.r);
     point(this.pos.x, this.pos.y);
   }
+
+  belowScreen() {
+    return (this.pos.y > height + this.r);
+  }
 }
+

@@ -15,7 +15,7 @@ function draw() {
     flake.update(); 
   }); 
 
-  snow.filter(flake => {
-    return flake.pos.y > width + 20;
+  snow = snow.filter(flake => {
+    return !(flake.belowScreen());
   });
 }
