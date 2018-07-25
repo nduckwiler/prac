@@ -1,10 +1,10 @@
 class Snowflake {
   constructor () {
-    this.r = random(2, 6);
+    this.r = random(2, 10);
     const x = random(width);
-    const y = random(-100, 10);
+    const y = random(-100, 0);
     this.pos = createVector(x, y);
-    this.vel = createVector(0, 5);
+    this.vel = createVector(0, 0);
     this.acc = createVector();
   }
 
@@ -14,6 +14,7 @@ class Snowflake {
 
   update() {
     this.vel.add(this.acc);
+    this.vel.limit(this.r * 0.2);
     this.pos.add(this.vel);
 
     this.acc.mult(0);

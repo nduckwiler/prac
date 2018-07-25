@@ -3,7 +3,7 @@ var gravity;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  gravity = createVector(0, 0.1);
+  gravity = createVector(0, 0.05);
 }
 
 function draw() {
