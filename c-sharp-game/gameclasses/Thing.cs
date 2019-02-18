@@ -27,10 +27,22 @@ namespace c_sharp_game.gameclasses
       _canTake = aCanTake;
     }
 
+    // Name property
+    public string Name 
+    {
+      get => _name;
+    }
+
+    // Description property
+    public string Description 
+    {
+      get => _description;
+    }
+
     // A virtual method
     public virtual string Describe()
     {
-      return _name + " " + _description;
+      return Name + ": " + Description;
     }
 
   }
