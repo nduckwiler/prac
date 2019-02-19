@@ -10,16 +10,19 @@ namespace c_sharp_game
             Console.WriteLine("Welcome to a text-based adventure game.");
 
             Thing toy = new Thing("Toy", "A child's plaything", true);
-            Console.WriteLine(toy.Describe());
+            // Console.WriteLine(toy.Describe());
 
             ThingList nurseryList = new ThingList();
-            Console.WriteLine(nurseryList.Describe());
+            // Console.WriteLine(nurseryList.Describe());
             nurseryList.Add(toy);
             nurseryList.Add(new Thing("Binky", "Put it in a child's mouth to silence it"));
-            Console.WriteLine(nurseryList.Describe());
+            // Console.WriteLine(nurseryList.Describe());
 
             Room nursery = new Room("Nursery", "A room for young humans", "No exit", "No exit", "No exit", "No exit", nurseryList);
-            Console.WriteLine(nursery.Describe());
+            // Console.WriteLine(nursery.Describe());
+
+            Actor player = new Actor("You", "The player", nursery, new ThingList());
+            Console.WriteLine(player.Describe());
         }
     }
 }
