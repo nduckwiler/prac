@@ -16,6 +16,23 @@ namespace c_sharp_game.gameclasses
             _west = west;
         }
 
+        public string North
+        {
+            get => _north;
+        }
+        public string East
+        {
+            get => _east;
+        }
+        public string South
+        {
+            get => _south;
+        }
+        public string West
+        {
+            get => _west;
+        }
+
         public override string Describe()
         {
             return this.Name + ": " + this.Description + "\r\nIn this room we find... " + this.Things.Describe();
