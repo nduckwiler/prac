@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<style>
+svg {border: dotted 1px grey}
+
+clipPath * {
+  transition-property: r;
+  transition-duration: 1s;
+}
+</style>
+</head>
+<body>
+<h1>Concurrent Transitions in d3</h1>
+
+<p>Inspired by <a href="https://bl.ocks.org/mbostock/5348789" target="_blank">Mike Bostock's example of concurrent transitions</a>. Find more d3 easing functions in <a href="https://github.com/d3/d3-ease" target="_blank">the documentation</a>.</p>
+
+<p>Click on each circle to animate it, or click this button to run all at once.</p>
+
+<button id="run-all-btn" type="button">Run em all</button>
+<div>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+
+  </defs>
+
+  <!-- <rect x="150" y="150" width="100" height="50" fill="grey"/> -->
+  <!-- <circle cx="100" cy="300" r="50" fill="red"/> -->
+
+
+</svg>
+</div>
+
+<script src="concurrent-transitions.js"></script>
+</body>
+<html>
