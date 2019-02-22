@@ -60,7 +60,7 @@ window.onload = () => {
         .transition()
         .duration(duration)
         .ease(d3.easeLinear)
-        .attr('cx', s.width);
+        .attr('cx', s.width - 100);
   }
 
   function smallBig(d, i, nodes) {
@@ -73,6 +73,7 @@ window.onload = () => {
         .attr('r', finalRadius);
   }
 
+  // Combines both left-to-right and small-to-big transitions
   function leftRightSmallBig(d, i, nodes) {
     const clicked = d3.select(this);
 
@@ -82,18 +83,20 @@ window.onload = () => {
     function twizzle(elem) {
       d3.select(twizzleLock).transition()
           .duration(duration)
+          .ease(d3.easeBounce)
           .tween('r', function() {
             const interpolator = d3.interpolateNumber(initialRadius, finalRadius);
-            return function(t) { elem.attr('r', interpolator(d3.easeBounce(t))); };
+            return function(t) { elem.attr('r', interpolator(t)); };
           });
     }
 
     function plonk(elem) {
       d3.select(plonkLock).transition()
           .duration(duration)
+          .ease(d3.easeLinear)
           .tween('cx', function() {
-            const interpolator = d3.interpolateNumber(elem.attr('cx'), s.width);
-            return function(t) { elem.attr('cx', interpolator(d3.easeLinear(t))); };
+            const interpolator = d3.interpolateNumber(elem.attr('cx'), s.width - 100);
+            return function(t) { elem.attr('cx', interpolator(t)); };
           });
     }
 
