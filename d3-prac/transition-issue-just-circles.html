@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<script src="https://d3js.org/d3.v5.js"></script>
+<link rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/github.min.css">
+<style>
+svg {border: dotted 1px grey}
+
+</style>
+</head>
+<body>
+<h1>Transitions issue in d3.v5</h1>
+
+<p>The circles are defined with a <code>circle</code> element. The transitions for both "circles" are defined as follows:</p>
+
+<pre><code class="JavaScript">circle1.transition()
+    .duration(duration)
+    .ease(d3.easeBounce)
+    .attr('r', finalRadius);
+
+circle2.transition()
+    .duration(duration)
+    .ease(d3.easeBounce)
+    .attr('r', finalRadius);
+</pre></code>
+
+<p>where <code>duration</code> and <code>finalRadius</code> are pre-defined variables.</p>
+
+<p>Notice that the blue circle (the clipped rectangle) does not transition with a bounce, as expected.</p>
+
+<button id="run-all-btn" type="button">Run transitions</button>
+<div>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+  </defs>
+
+</svg>
+</div>
+
+<script src="transition-issue-just-circles.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+<html>
