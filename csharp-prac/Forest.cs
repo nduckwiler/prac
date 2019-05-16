@@ -4,6 +4,7 @@ namespace csharp_prac
     public class Forest
     {
         private int _age = 0;
+        private string _name;
         private string _biome;
         private double _trees;
         static string _treeFacts;
@@ -12,31 +13,24 @@ namespace csharp_prac
         // Run at most once before any instances are initialized
         static Forest()
         {
-          _treeFacts = "Forests provide a diversity of ecosystem services including:\r\n" +
-"converting carbon dioxide into oxygen and biomass.\r\n" +
-"acting as a carbon sink.\r\n" +
-"aiding in regulating climate.\r\n" +
-"purifying water.\r\n" +
-"mitigating natural hazards such as floods.\r\n" +
-"serving as a genetic reserve.\r\n" +
-"serving as a source of lumber and as recreational are\r\n";
+            _treeFacts = "Forests provide a diversity of ecosystem services including: aiding in regulating climate.\\r\\n purifying water.\\r\\n   mitigating natural hazards such as floods.\\r\\n";
         }
 
 
         // First constructor
         public Forest(string name)
         {
-            Name = name;
+            _name = name;
         }
 
         // Second constructor
         public Forest(string name, string biome)
         {
-            Name = name;
+            _name = name;
             _biome = biome;
         }
 
-        // Biome property: traditional get and set methods
+        // Biome property: get and set methods
         public string Biome
         {
             get { return _biome; }
@@ -59,9 +53,12 @@ namespace csharp_prac
             get { return _age; }
         }
 
-        // Name property: automatic, so a hidden Name field is backing this property
+        // Name property: get and set method
         public string Name
-        { get; set; }
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
 
         // TreeFacts property: static get method for a static property
         public static string TreeFacts
