@@ -3,11 +3,15 @@ namespace csharp_prac
 {
     public class Forest
     {
+        // FIELDS
+
         private int _age = 0;
         private string _name;
         private string _biome;
         private double _trees;
         static string _treeFacts;
+
+        // CONSTRUCTORS
 
         // Static constructor
         // Run at most once before any instances are initialized
@@ -15,7 +19,6 @@ namespace csharp_prac
         {
             _treeFacts = "Forests provide a diversity of ecosystem services including: aiding in regulating climate.\\r\\n purifying water.\\r\\n   mitigating natural hazards such as floods.\\r\\n";
         }
-
 
         // First constructor
         public Forest(string name)
@@ -29,6 +32,8 @@ namespace csharp_prac
             _name = name;
             _biome = biome;
         }
+
+        // PROPERTIES
 
         // Biome property: get and set methods
         public string Biome
