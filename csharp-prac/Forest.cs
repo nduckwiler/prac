@@ -52,10 +52,11 @@ namespace csharp_prac
             }
         }
 
-        // Age property: only get method
+        // Age property: get method and private set method
         public int Age
         {
             get { return _age; }
+            private set { _age = value; }
         }
 
         // Name property: get and set method

@@ -23,6 +23,10 @@ namespace csharp_prac
             // Use static property
             Console.WriteLine(Forest.TreeFacts);
 
+            // Show that Age cannot be set outside of enclosing class.
+            // This throws an error:
+            // g.Age++;
+
         }
     }
 }
