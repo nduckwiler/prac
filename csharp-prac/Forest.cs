@@ -41,7 +41,7 @@ namespace csharp_prac
             get { return _biome; }
             set 
             { 
-              if (value == "tropical" || value == "temperate")
+              if (value == "Tropical" || value == "Temperate" || value == "Boreal")
               {
                   _biome = value;
               } 
