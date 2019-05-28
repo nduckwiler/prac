@@ -8,7 +8,7 @@ namespace csharp_prac
         private int _age = 0;
         private string _name;
         private string _biome;
-        private double _trees;
+        private int _trees;
         static string _treeFacts;
 
         // CONSTRUCTORS
@@ -63,6 +63,13 @@ namespace csharp_prac
         {
             get { return _name; }
             set { _name = value; }
+        }
+
+        // Trees property: get and set method
+        public int Trees
+        {
+            get { return _trees; }
+            set { _trees = value; }
         }
 
         // TreeFacts property: static get method for a static property
