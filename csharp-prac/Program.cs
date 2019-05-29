@@ -8,17 +8,19 @@ namespace csharp_prac
         {
             // Use first constructor
             Forest f = new Forest("Amazon");
-            Console.WriteLine("First forest-");
+            Console.WriteLine("\n- First forest -");
             Console.WriteLine($"Name: {f.Name}");
             Console.WriteLine($"Biome: {f.Biome}");
             Console.WriteLine($"Age: {f.Age}");
 
             // Use second constructor
-            Forest g = new Forest("Congo", "tropical");
-            Console.WriteLine("Second forest-");
+            Forest g = new Forest("Congo", "Tropical");
+            Console.WriteLine("\n- Second forest -");
             Console.WriteLine($"Name: {g.Name}");
             Console.WriteLine($"Biome: {g.Biome}");
             Console.WriteLine($"Age: {g.Age}");
+
+            Console.WriteLine();
 
             // Use static property
             Console.WriteLine(Forest.TreeFacts);
