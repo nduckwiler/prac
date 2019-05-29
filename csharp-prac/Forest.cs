@@ -7,7 +7,7 @@ namespace csharp_prac
 
         private int _age = 0;
         private string _biome;
-        static string _treeFacts;
+        private static string _treeFacts;
         private static int _forestsCreated;
 
         // CONSTRUCTORS
@@ -84,6 +84,8 @@ namespace csharp_prac
         // expression-bodied properties are not included here
         // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties#expression-body-definitions
 
+        // METHODS
+
         public int Grow()
         {
             Trees += 30;
@@ -96,6 +98,11 @@ namespace csharp_prac
             Trees -= 20;
             Age++;
             return Trees;
+        }
+
+        public static void PrintTreeFacts()
+        {
+            Console.WriteLine(TreeFacts);
         }
     }
 }
