@@ -22,6 +22,7 @@ namespace csharp_prac
         public Forest(string name)
         {
             Name = name;
+            Age = 0; // ints default to 0, but this makes it explicit
         }
 
         // Second constructor
@@ -29,6 +30,7 @@ namespace csharp_prac
         {
             Name = name;
             Biome = biome;
+            Age = 0;
         }
 
         // PROPERTIES
