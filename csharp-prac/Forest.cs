@@ -15,7 +15,7 @@ namespace csharp_prac
         // Run at most once before any instances are initialized
         static Forest()
         {
-            _treeFacts = "Forests provide a diversity of ecosystem services including: aiding in regulating climate.\\r\\n purifying water.\\r\\n   mitigating natural hazards such as floods.\\r\\n";
+            _treeFacts = "Forests provide a diversity of ecosystem services including:\r\n  aiding in regulating climate.\r\n  purifying water.\r\n  mitigating natural hazards such as floods.\n";
         }
 
         // First constructor
