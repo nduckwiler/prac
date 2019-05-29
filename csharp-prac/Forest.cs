@@ -6,9 +6,7 @@ namespace csharp_prac
         // FIELDS
 
         private int _age = 0;
-        private string _name;
         private string _biome;
-        private int _trees;
         static string _treeFacts;
 
         // CONSTRUCTORS
@@ -23,13 +21,13 @@ namespace csharp_prac
         // First constructor
         public Forest(string name)
         {
-            _name = name;
+            Name = name;
         }
 
         // Second constructor
         public Forest(string name, string biome)
         {
-            _name = name;
+            Name = name;
             _biome = biome;
         }
 
@@ -59,19 +57,11 @@ namespace csharp_prac
             private set { _age = value; }
         }
 
-        // Name property: get and set method
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
+        // Name property: automatic property
+        public string Name { get; set; }
 
-        // Trees property: get and set method
-        public int Trees
-        {
-            get { return _trees; }
-            set { _trees = value; }
-        }
+        // Trees property: automatic property
+        public int Trees { get; set; }
 
         // TreeFacts property: static get method for a static property
         public static string TreeFacts
