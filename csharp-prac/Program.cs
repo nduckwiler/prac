@@ -6,6 +6,10 @@ namespace csharp_prac
     {
         static void Main(string[] args)
         {
+            // Check static properties and methods
+            Console.WriteLine($"Forests created: {Forest.ForestsCreated}");
+            Forest.PrintTreeFacts();
+
             // Use first constructor
             Forest f = new Forest("Amazon");
             Console.WriteLine("\n- First forest -");
@@ -22,9 +26,9 @@ namespace csharp_prac
 
             Console.WriteLine();
 
-            // Use static property
-            Console.WriteLine(Forest.TreeFacts);
-
+            // Check static property is updated in constructors
+            Console.WriteLine($"Forests created: {Forest.ForestsCreated}\n");
+            
             // Show that Age cannot be set outside of enclosing class.
             // This throws an error:
             // g.Age++;
