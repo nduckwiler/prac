@@ -72,5 +72,18 @@ namespace csharp_prac
         // expression-bodied properties are not included here
         // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties#expression-body-definitions
 
+        public int Grow()
+        {
+            Trees += 30;
+            Age++;
+            return Trees;
+        }
+
+        public int Burn()
+        {
+            Trees -= 20;
+            Age++;
+            return Trees;
+        }
     }
 }

@@ -27,6 +27,11 @@ namespace csharp_prac
             // This throws an error:
             // g.Age++;
 
+            // Use methods
+            Console.WriteLine($"At first, {g.Name} has {g.Trees} trees and {g.Age} years of age.");
+            Console.WriteLine($"After growing, {g.Name} has {g.Grow()} trees and {g.Age} years of age.");
+            Console.WriteLine($"After burning, {g.Name} has {g.Burn()} trees and {g.Age} years of age.");
+
         }
     }
 }
