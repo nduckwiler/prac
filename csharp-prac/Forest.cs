@@ -17,6 +17,7 @@ namespace csharp_prac
         static Forest()
         {
             _treeFacts = "Forests provide a diversity of ecosystem services including:\r\n  aiding in regulating climate.\r\n  purifying water.\r\n  mitigating natural hazards such as floods.\n";
+            ForestsCreated = 0; // ints default to 0, but this makes it explicit
         }
 
         // First constructor
