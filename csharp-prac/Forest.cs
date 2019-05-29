@@ -8,6 +8,7 @@ namespace csharp_prac
         private int _age = 0;
         private string _biome;
         static string _treeFacts;
+        private static int _forestsCreated;
 
         // CONSTRUCTORS
 
@@ -23,6 +24,7 @@ namespace csharp_prac
         {
             Name = name;
             Age = 0; // ints default to 0, but this makes it explicit
+            ForestsCreated++;
         }
 
         // Second constructor
@@ -31,6 +33,7 @@ namespace csharp_prac
             Name = name;
             Biome = biome;
             Age = 0;
+            ForestsCreated++;
         }
 
         // PROPERTIES
@@ -64,6 +67,13 @@ namespace csharp_prac
 
         // Trees property: automatic property
         public int Trees { get; set; }
+
+        // ForestsCreated property: static; get method and private set method
+        public static int ForestsCreated
+        {
+            get { return _forestsCreated; }
+            private set { _forestsCreated = value; }
+        }
 
         // TreeFacts property: static get method for a static property
         public static string TreeFacts
