@@ -28,7 +28,7 @@ namespace csharp_prac
         public Forest(string name, string biome)
         {
             Name = name;
-            _biome = biome;
+            Biome = biome;
         }
 
         // PROPERTIES
