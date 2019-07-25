@@ -5,10 +5,8 @@ namespace InterfacesInheritance
     class Sedan : Vehicle, IAutomobile
     {
 
-        public Sedan(double speed)
+        public Sedan(double speed) : base(speed)
         {
-            Speed = speed;
-            LicensePlate = Tools.GenerateLicensePlate();
             Wheels = 4;
         }
 

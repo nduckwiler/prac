@@ -8,10 +8,8 @@ namespace InterfacesInheritance
         public double Weight
         { get; }
 
-        public Truck(double speed, double weight)
+        public Truck(double speed, double weight) : base(speed)
         {
-            Speed = speed;
-            LicensePlate = Tools.GenerateLicensePlate();
             Weight = weight;
 
             if (weight > 400)
