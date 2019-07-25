@@ -2,7 +2,7 @@ using System;
 
 namespace InterfacesInheritance
 {
-    class Vehicle
+    abstract class Vehicle
     {
       public string LicensePlate
       { get; protected set; }
@@ -28,6 +28,8 @@ namespace InterfacesInheritance
       {
         Speed -= 5;
       }
+
+      public abstract string Describe();
       
     }
 }
