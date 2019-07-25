@@ -5,13 +5,13 @@ namespace InterfacesInheritance
     class Vehicle
     {
       public string LicensePlate
-      { get; }
+      { get; protected set; }
 
       public double Speed
       { get; private set; }
 
       public int Wheels
-      { get; }
+      { get; protected set; }
 
       public Vehicle(double speed)
       {
