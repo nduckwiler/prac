@@ -2,7 +2,7 @@ using System;
 
 namespace InterfacesInheritance
 {
-    class Sedan
+    class Sedan : IAutomobile
     {
 
     }
