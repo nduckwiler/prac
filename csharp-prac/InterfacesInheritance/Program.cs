@@ -13,6 +13,14 @@ namespace InterfacesInheritance
             s.SpeedUp();
             Console.WriteLine($"Sedan's faster speed: {s.Speed}");
 
+            Truck t = new Truck(60, 750);
+            Console.WriteLine($"Sedan's license plate: {t.LicensePlate}");
+            Console.WriteLine($"Sedan's speed: {t.Speed}");
+            Console.WriteLine($"Sedan's wheels: {t.Wheels}");
+            Console.WriteLine($"Sedan's weight: {t.Weight}");
+            t.SpeedUp();
+            Console.WriteLine($"Sedan's faster speed: {t.Speed}");
+
 
         }
     }
