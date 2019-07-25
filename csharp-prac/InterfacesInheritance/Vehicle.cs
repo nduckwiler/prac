@@ -8,7 +8,7 @@ namespace InterfacesInheritance
       { get; protected set; }
 
       public double Speed
-      { get; private set; }
+      { get; protected set; }
 
       public int Wheels
       { get; protected set; }
