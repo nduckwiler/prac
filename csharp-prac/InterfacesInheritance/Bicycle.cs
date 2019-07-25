@@ -10,7 +10,7 @@ namespace InterfacesInheritance
       Wheels = 2;
     }
 
-    public void SpeedUp()
+    public override void SpeedUp()
     {
       Speed += 5;
       
@@ -21,7 +21,7 @@ namespace InterfacesInheritance
 
     }
 
-    public void SlowDown()
+    public override void SlowDown()
     {
       Speed -= 5;
 
