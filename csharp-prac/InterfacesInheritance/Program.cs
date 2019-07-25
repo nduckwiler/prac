@@ -8,25 +8,22 @@ namespace InterfacesInheritance
         {
             Sedan s = new Sedan(60);
             Console.WriteLine($"Sedan's license plate: {s.LicensePlate}");
-            Console.WriteLine($"Sedan's speed: {s.Speed}");
-            Console.WriteLine($"Sedan's wheels: {s.Wheels}");
+            Console.WriteLine(s.Describe());
             s.SpeedUp();
             Console.WriteLine($"Sedan's faster speed: {s.Speed}");
 
             Truck t = new Truck(60, 750);
-            Console.WriteLine($"Sedan's license plate: {t.LicensePlate}");
-            Console.WriteLine($"Sedan's speed: {t.Speed}");
-            Console.WriteLine($"Sedan's wheels: {t.Wheels}");
-            Console.WriteLine($"Sedan's weight: {t.Weight}");
+            Console.WriteLine($"Truck's license plate: {t.LicensePlate}");
+            Console.WriteLine(t.Describe());
+            Console.WriteLine($"Truck's weight: {t.Weight}");
             t.SpeedUp();
-            Console.WriteLine($"Sedan's faster speed: {t.Speed}");
+            Console.WriteLine($"Truck's faster speed: {t.Speed}");
            
             Bicycle b = new Bicycle(5);
-            Console.WriteLine($"Sedan's license plate: {b.LicensePlate}");
-            Console.WriteLine($"Sedan's speed: {b.Speed}");
-            Console.WriteLine($"Sedan's wheels: {b.Wheels}");
+            Console.WriteLine($"Bicyle's license plate: {b.LicensePlate}");
+            Console.WriteLine(b.Describe());
             b.SpeedUp();
-            Console.WriteLine($"Sedan's faster speed: {b.Speed}");
+            Console.WriteLine($"Bicycle's faster speed: {b.Speed}");
 
 
         }

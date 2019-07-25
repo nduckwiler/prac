@@ -31,5 +31,10 @@ namespace InterfacesInheritance
       }
     }
 
+    public override string Describe()
+    {
+        return $"This Bicycle is on {Wheels} wheels, going {Speed} km/h.";
+    }
+
   }
 }
