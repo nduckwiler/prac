@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-prac", "csharp-prac.csproj", "{0669A7E6-0453-43C0-83BE-BC250E632348}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicClasses", "BasicClasses.csproj", "{0669A7E6-0453-43C0-83BE-BC250E632348}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

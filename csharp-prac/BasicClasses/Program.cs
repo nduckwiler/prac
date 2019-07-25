@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace csharp_prac
+namespace BasicClasses
 {
     class Program
     {
