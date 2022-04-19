@@ -1,5 +1,5 @@
 ﻿using System;
-namespace csharp_prac
+namespace BasicClasses
 {
     public class Forest
     {
